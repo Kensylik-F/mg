@@ -1,15 +1,25 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import '../style/root.css'
 
-const tg = window.Telegram?.WebApp
 function App() {
+useEffect(() => {
+    const tg = window.Telegram?.WebApp;
+    if (!tg) {
+      console.warn('Telegram WebApp не обнаружен (вероятно, вы не в Telegram или скрипт ещё не загрузился)');
+      return;
+    }
+    tg.ready?.();
+  }, []);
 
-  useEffect(()=>{
-    tg.ready()
-  },[])
-  const onClose = () =>{
-    tg.close()
-  }
+  const onClose = useCallback(() => {
+    const tg = window.Telegram?.WebApp;
+    if (!tg) {
+      console.warn('Telegram WebApp не доступен для закрытия');
+      return;
+    }
+    tg.close?.();
+  }, []);
+
   return (
     <div className="App">
       <div style={{width:'100%', height:'100%',display:'flex', justifyContent:'center',alignItems:'center', textAlign:'center', flexDirection:'column', gap:'30px'}}>
