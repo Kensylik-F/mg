@@ -1,0 +1,52 @@
+
+.AppHeader {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0 12px;
+  border-bottom: 1px solid #f0f0f0;
+  background: var(--app-bg);
+  overflow: hidden; 
+}
+
+.AppHeader .LogoText {
+  font-family: 'Ruslan Display', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  transform: scaleY(1.5); 
+  margin-top: 8px;
+  line-height: 1;          
+}
+
+.AppHeaderSearch{
+  font-size: 15px;
+}
+.AppHeaderProfile{
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: #e3e4e4;
+}
+
+@media (max-width: 420px) {
+  .AppHeader .LogoText {
+    font-size: 18px;
+    letter-spacing: 0.08em;
+    transform: scaleY(1.4);
+  }
+}
+
+@media (max-width: 360px) {
+  .AppHeader .LogoText {
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    transform: scaleY(1.3);
+  }
+}
